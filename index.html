@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/3.0.0-beta.11/vuetify.js" integrity="sha512-hIKKAJ+Rqq3QSOgyw59CHokWKlGGqjypGiGG2mYOWLPBw2tvdJH+PDfPuv6dmZU8atJhS7nR2hu0z5+tkG6H7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vuetify/3.0.0-beta.11/vuetify.css" integrity="sha512-8ILVhSXeUKa01APeQis9Et4Nef7aXgJDuFHs8hgm0WzcVnd2G9EdegI0AdTIsca3NF1t3lh/e5K2S0oVB3Z5jQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./css/materialdesignicons.min.css">
+
+  <script src="./js/moment.js"></script>
+
+  <!--
+  <script src="https://unpkg.com/browse/vuetify@3.0.0-beta.1/dist/vuetify.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/browse/vuetify@3.0.0-beta.1/dist/vuetify.css">
+  -->
+
+</head>
+<body>
+
+    <div id="app">
+      <v-app>
+
+        <!-- Configuracion y status-->
+        <v-row>
+          <v-col>
+            <v-btn elevation="2" @click="startStopExercise">Empezar /Parar</v-btn>
+          </v-col>
+          <v-col>
+            <v-progress-circular :rotate="360" :size="100" :width="15" :value="value" color="teal">
+              {{ status.initialTime }}
+          </v-progress-circular>
+          </v-col>
+        </v-row>
+
+        <v-row v-for="row in configuration.size">
+            <v-col v-for="col in configuration.size" class="bg-blue ma-5 rounded-lg">
+              
+            <div v-if="position.square == getSquareId(row,col)">
+              aaaa
+              <v-icon dark large>mdi-minus</v-icon>
+            </div>
+
+            </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-btn elevation="2" @click="startStopExercise">Empezar /Parar</v-btn>
+          </v-col>
+        </v-row>
+      </v-app>
+    </div>
+
+
+    <script src="./js/square.js"></script>
+
+</body>
+</html>
